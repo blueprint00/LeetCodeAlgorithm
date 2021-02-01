@@ -29,7 +29,7 @@ public class CheckArrayFormationThroughConcatenation {
 //		}
 //        if(cnt == arr.length) return true;
 //        else return false;
-		//
+		
 		Map<Integer, int[]> map = new HashMap<>();
 		for(int[] piece : pieces) {
 			map.put(piece[0], piece);
