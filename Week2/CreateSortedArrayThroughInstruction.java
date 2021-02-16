@@ -30,6 +30,7 @@ public class CreateSortedArrayThroughInstruction {
 			
 			cost += Math.min(max - idx, idx - min);
 		}
+		
 		return cost;
     }	
 }
