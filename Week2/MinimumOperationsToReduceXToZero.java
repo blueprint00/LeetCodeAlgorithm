@@ -4,7 +4,7 @@ import java.util.*;
 
 public class MinimumOperationsToReduceXToZero {
 	public static void main(String[] args) {
-		int[] nums = {500, 1, 1, 4, 2, 3};
+		int[] nums = {500, 1, 4, 2, 3};
 		int x = 500;
 		System.out.println(minOperations(nums, x));
 	}
@@ -18,10 +18,11 @@ public class MinimumOperationsToReduceXToZero {
         	sum += nums[right];
         	right --;
         	cnt ++;
+            System.out.println(sum + " " + right + " " + cnt);
         }
 		if(sum == x && cnt < answer) answer = cnt;
-        
-        if(right > -1) {
+        System.out.println(answer + " " + cnt);
+        if(right >= -1) {
         	while(right < nums.length -1) {
         		right ++;
         		sum -= nums[right];
