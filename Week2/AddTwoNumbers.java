@@ -27,46 +27,66 @@ public class AddTwoNumbers {
 		
 	}
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode ln1 = new ListNode();
-        ListNode ln2 = new ListNode();
-        
-        ListNode tmp = new ListNode(0);
-        ListNode ans = tmp;
-        
-        int size1 = 0, size2 = 0;
-        while(l1 != null) {
-        	if(size1 == 0) ln1 = new ListNode(l1.val);
-        	else ln1 = new ListNode(l1.val, ln1);
-        	l1 = l1.next;
-        	size1 ++;
-        }
-        while(l2 != null) {
-        	if(size2 == 0) ln2 = new ListNode(l2.val);
-        	else ln2 = new ListNode(l2.val, ln2);
-        	l2 = l2.next;
-        	size2 ++;
-        }
-        
-        int num1 = 0, num2 = 0;
-        for(int i = 0; i < size1; i ++) {
-        	num1 += (ln1.val * Math.pow(10, i));
-        	ln1 = ln1.next;
-        }
-        for(int i = 0; i < size2; i ++) {
-        	num2 += (ln2.val * Math.pow(10, i));
-        	ln2 = ln2.next;
-        }
-        
-        int num = num1 + num2; // 807 = 342 + 465
-        
-        if(num == 0) return tmp;
-        while(num > 0) {
-        	ListNode l = new ListNode(num % 10);
-        	num = num / 10;
-        	ans.next = l;
-        	ans = ans.next;
-        }
-        
-        return tmp.next; // 7 0 8
+		ListNode dummyHead = new ListNode(0);
+		ListNode p = l1, q = l2, curr = dummyHead;
+		
+		int carry = 0;
+		while(p != null || q != null){
+			int x = (p != null) ? p.val : 0;
+			int y = (q != null) ? q.val : 0;
+			int sum = carry + x + y;
+			carry = sum / 10;
+			curr.next = new ListNode(sum % 10);
+			curr = curr.next;
+			if(p != null) p = p.next;
+			if(q != null) q = q.next;
+		}
+		
+		if(carry > 0) curr.next = new ListNode(carry);
+		
+		return dummyHead.next;
+		
+		
+//        ListNode ln1 = new ListNode();
+//        ListNode ln2 = new ListNode();
+//        
+//        ListNode tmp = new ListNode(0);
+//        ListNode ans = tmp;
+//        
+//        int size1 = 0, size2 = 0;
+//        while(l1 != null) {
+//        	if(size1 == 0) ln1 = new ListNode(l1.val);
+//        	else ln1 = new ListNode(l1.val, ln1);
+//        	l1 = l1.next;
+//        	size1 ++;
+//        }
+//        while(l2 != null) {
+//        	if(size2 == 0) ln2 = new ListNode(l2.val);
+//        	else ln2 = new ListNode(l2.val, ln2);
+//        	l2 = l2.next;
+//        	size2 ++;
+//        }
+//        
+//        int num1 = 0, num2 = 0;
+//        for(int i = 0; i < size1; i ++) {
+//        	num1 += (ln1.val * Math.pow(10, i));
+//        	ln1 = ln1.next;
+//        }
+//        for(int i = 0; i < size2; i ++) {
+//        	num2 += (ln2.val * Math.pow(10, i));
+//        	ln2 = ln2.next;
+//        }
+//        
+//        int num = num1 + num2; // 807 = 342 + 465
+//        
+//        if(num == 0) return tmp;
+//        while(num > 0) {
+//        	ListNode l = new ListNode(num % 10);
+//        	num = num / 10;
+//        	ans.next = l;
+//        	ans = ans.next;
+//        }
+//        
+//        return tmp.next; // 7 0 8
     }
 }
