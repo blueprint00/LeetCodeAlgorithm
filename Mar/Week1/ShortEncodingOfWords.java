@@ -19,9 +19,9 @@ public class ShortEncodingOfWords {
 			words[size ++] = strs.next();
 		}
 		
-		int result = 0, add;
+		int result = 0;
 		for(int i = 0; i < size; i ++) {
-			add = words[i].length() + 1;// 1 == "#"
+			int add = words[i].length() + 1;// 1 == "#"
 			for(int j = 0; j < size; j ++) {
 				//만약 words[i]가 words[j]의 접미사일 경우 최종 스트링에 더할 필요 없음 
 				if(i != j && words[j].endsWith(words[i])) {
