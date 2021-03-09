@@ -8,6 +8,7 @@ public class RemovePalindromicSubsequences {
 	public static int removePalindromeSub(String s) {
 		if(s.length() == 0) return 0;
 		return s.equals(new StringBuilder(s).reverse().toString()) ? 1 : 2;
+		
 //		List<Character> ch = new ArrayList<>();
 //		for(char c : s.toCharArray()) ch.add(c);
 //		
