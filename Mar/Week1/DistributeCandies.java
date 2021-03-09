@@ -6,8 +6,7 @@ public class DistributeCandies {
 		System.out.println(distributeCandies(candyType));
 	}
 	public static int distributeCandies(int[] candyType) {
-        Set<Integer> set = new HashSet<>();
-        
+        Set<Integer> set = new HashSet<>();s
         for(int candy : candyType) set.add(candy);
         return Math.min(set.size(), candyType.length / 2);
     }
