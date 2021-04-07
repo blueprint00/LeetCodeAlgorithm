@@ -20,7 +20,7 @@ public class MinimumOperationsToMakeArrayEqual {
             int arr = i * 2 + 1;
             answer += middle - arr;
         }
-
+        
         return answer;
     }
 }
