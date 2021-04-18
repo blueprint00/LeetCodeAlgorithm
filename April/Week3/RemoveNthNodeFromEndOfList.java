@@ -9,7 +9,7 @@ public class RemoveNthNodeFromEndOfList {
             size ++;
             tmp = tmp.next;
         }
-        if(size == 1) return null;
+        // if(size == 1) return null;
         
         for(int i = 0; i < size - n; i ++){
             prev = curr;
